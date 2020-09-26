@@ -3,7 +3,7 @@ from db_models.models import Champ
 
 
 def get_all_champs():
-    return Champ.query.all()
+    return db.query(Champ).all()
 
 
 def create_champ(name: str, national: bool):
