@@ -8,12 +8,14 @@ from db_models.utils import create_champ, get_all_champs
 router = APIRouter()
 
 
-class Championship(BaseModel):
-    name: str
-    national: bool
-
+class BaseORMModel(BaseModel):
     class Config:
         orm_mode = True
+
+
+class Championship(BaseORMModel):
+    name: str
+    national: bool
 
 
 @router.get("/", response_model=List[Championship])
